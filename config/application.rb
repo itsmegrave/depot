@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,5 +18,14 @@ module Depot
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.rails_semantic_logger.format = :json
+
+    config.semantic_logger.add_appender(file_name: "log/#{Rails.env}.json", formatter: :json)
+
+    # SemanticLogger.add_appender(
+    #   appender: :elasticsearch,
+    #   url: 'http://localhost:9200'
+    # )
   end
 end

@@ -23,7 +23,7 @@ class CartsController < ApplicationController
   def create
     @cart = Cart.new(cart_params)
 
-    respond_to do |format|
+      respond_to do |format|
       if @cart.save
         format.html { redirect_to cart_url(@cart), notice: 'Cart was successfully created.' }
         format.json { render :show, status: :created, location: @cart }
@@ -75,3 +75,4 @@ class CartsController < ApplicationController
     redirect_to store_index_url, notice: 'Invalid cart'
   end
 end
+
